@@ -1,0 +1,8 @@
+{
+  "name": "Remix PulseBridge — Remote Patient Monitoring \u0026 Alert System",
+  "description": "Interactive clinical prototype for remote patient monitoring, telemetry visualization, alert triage, and device health management.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

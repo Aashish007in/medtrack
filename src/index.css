@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --ink: #0f172a;
+    --muted: #64748b;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--ink);
+    overflow-x: hidden;
+    background-color: #dbeafe;
+  }
+}
+
+/* ---------- Glassmorphism ---------- */
+.glass {
+  background: rgba(255, 255, 255, 0.58);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow: 0 10px 40px -12px rgba(30, 64, 175, 0.25);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(26px);
+  -webkit-backdrop-filter: blur(26px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 14px 44px -14px rgba(30, 64, 175, 0.3);
+}
+
+.glass-item {
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 16px -6px rgba(30, 64, 175, 0.18);
+}
+
+/* ---------- Colorful blurred-pills backdrop ---------- */
+.pills-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background: linear-gradient(135deg, #93c5fd 0%, #c4b5fd 35%, #f9a8d4 65%, #fde68a 100%);
+}
+
+.pills-backdrop::before {
+  content: '';
+  position: absolute;
+  inset: -10%;
+  background:
+    radial-gradient(circle at 8% 20%, #fbbf24 0 6%, transparent 24%),
+    radial-gradient(circle at 22% 70%, #60a5fa 0 7%, transparent 26%),
+    radial-gradient(circle at 38% 30%, #f472b6 0 6%, transparent 23%),
+    radial-gradient(circle at 52% 80%, #f87171 0 5%, transparent 22%),
+    radial-gradient(circle at 66% 22%, #38bdf8 0 7%, transparent 26%),
+    radial-gradient(circle at 78% 66%, #a78bfa 0 6%, transparent 24%),
+    radial-gradient(circle at 92% 34%, #facc15 0 6%, transparent 24%),
+    radial-gradient(circle at 30% 92%, #34d399 0 5%, transparent 20%),
+    radial-gradient(circle at 60% 50%, #ffffff 0 5%, transparent 22%),
+    radial-gradient(circle at 14% 48%, #fb7185 0 5%, transparent 20%);
+  filter: blur(38px) saturate(1.25);
+  animation: blob-drift 36s ease-in-out infinite alternate;
+}
+
+.pills-backdrop::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(64px);
+  -webkit-backdrop-filter: blur(64px);
+}
+
+@keyframes blob-drift {
+  0% { transform: translate3d(-2%, -1%, 0) scale(1); }
+  100% { transform: translate3d(2%, 2%, 0) scale(1.08); }
+}
+
+/* ---------- Soft scrollbars ---------- */
+::-webkit-scrollbar { width: 7px; height: 7px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(37, 99, 235, 0.35); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(37, 99, 235, 0.6); }
+
+/* ---------- Small helpers ---------- */
+.chip-input::placeholder { color: #94a3b8; }
+
+@keyframes pop-in {
+  0% { transform: scale(0.96); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.animate-pop { animation: pop-in 0.22s ease-out; }
+
+
+/* ---------- Professional theme overrides ---------- */
+body{background:#eef2f7!important;color:#0f172a}
+.pills-backdrop{background:linear-gradient(160deg,#f8fafc 0%,#eef2f7 55%,#e2e8f0 100%)!important}
+.pills-backdrop::before{content:none!important;animation:none!important}
+.pills-backdrop::after{background:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+.glass{background:rgba(255,255,255,.82)!important;backdrop-filter:blur(10px)!important;border:1px solid #e2e8f0!important;box-shadow:0 1px 2px rgba(15,23,42,.04),0 8px 24px -12px rgba(15,23,42,.12)!important}
+.glass-strong{background:#fff!important;backdrop-filter:none!important;border:1px solid #e2e8f0!important;box-shadow:0 1px 2px rgba(15,23,42,.05),0 10px 28px -14px rgba(15,23,42,.15)!important}
+.glass-item{background:#f8fafc!important;border:1px solid #e2e8f0!important;box-shadow:none!important}
+.shadow-blue-500\/40,.shadow-emerald-500\/40{--tw-shadow-color:rgba(15,23,42,.18)!important}
+::-webkit-scrollbar-thumb{background:rgba(71,85,105,.35)!important}
+.bg-gradient-to-br[class*="via-"]{background-image:linear-gradient(135deg,#e2e8f0,#f1f5f9 50%,#cbd5e1)!important}
+.h-12.w-12.rounded-2xl.bg-gradient-to-br{--tw-gradient-from:#334155!important;--tw-gradient-to:#1e293b!important;--tw-gradient-via:#334155!important}
+.bg-orange-100.text-orange-700,.bg-violet-100.text-violet-700,.bg-teal-100.text-teal-700{background:#e2e8f0!important;color:#334155!important}
+
